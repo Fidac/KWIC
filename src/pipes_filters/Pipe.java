@@ -12,17 +12,15 @@ public class Pipe {
 		reader = new PipedReader(writer);
 	}
 	
-	public void write(String file) throws IOException {
-		writer.write(file);
+	public void write(char c) throws IOException {
+		writer.write(c);
 	}
 	
 	public String read() throws IOException {
-		int data = reader.read();
+		int data;
 		StringBuilder sb = new StringBuilder();
-		while(data != -1) {
+		while((data = reader.read()) != -1) 
 			sb.append((char) data);
-			data = reader.read();
-		}
 		
 		return sb.toString();
 	}
