@@ -8,15 +8,17 @@ import pipes_filters.Alphabetizer;
 
 public class KWIC {	
 	public void execute(String file) throws IOException {
+		Pipe entry = new Pipe();
 		Pipe inCS = new Pipe();
 		Pipe csAl = new Pipe();
 		Pipe alOu = new Pipe();
+		Pipe exit = new Pipe();
 		
 		FileInputStream in = new FileInputStream(new File(file));
-		Input input = new Input(inCS, inCS);
+		Input input = new Input(entry, inCS);
 		CircularShifter shifter = new CircularShifter(inCS, csAl);
 		Alphabetizer alpha = new Alphabetizer(csAl, alOu);
-		Output output = new Output(alOu, alOu);
+		Output output = new Output(alOu, exit);
 		
 		input.run(); shifter.run();
 		alpha.run(); output.run();
