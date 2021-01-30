@@ -12,10 +12,10 @@ public class KWIC {
 		Pipe alOu = new Pipe();
 		
 		//FileInputStream in = new FileInputStream(file);
-		Input input = new Input();
-		CircularShifter shifter = new CircularShifter();
-		Alphabetizer alpha = new Alphabetizer();
-		Output output = new Output();
+		Input input = new Input(inCS, inCS);
+		CircularShifter shifter = new CircularShifter(inCS, csAl);
+		Alphabetizer alpha = new Alphabetizer(csAl, alOu);
+		Output output = new Output(alOu, alOu);
 		
 		//input.start(); shifter.start();
 		//alpha.start(); output.start();

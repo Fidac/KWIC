@@ -1,5 +1,12 @@
 package pipes_filters;
 
-public class Filter {
-
+public abstract class Filter implements Runnable{
+	protected Pipe input;
+	protected Pipe output;
+	
+	Filter(Pipe in, Pipe out){
+		input = in;
+		output = out;
+	}
+	
 }
