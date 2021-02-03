@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public class Output extends Filter {
 
-	public Output(Pipe in, Pipe out){
-		super(in, out);
+	public Output(Pipe in){
+		super(in);
 	}
 	
 	@Override

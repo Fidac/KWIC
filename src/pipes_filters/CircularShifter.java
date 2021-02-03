@@ -11,8 +11,7 @@ public class CircularShifter extends Filter {
 	@Override
 	public void run() {
 		try {
-			String lines = input.read();
-			
+			String lines[] = input.read().split("\\n");
 			// call methods that will execute logic of shifted lines
 			
 			// Finally when the final output (shiftedLines) is built:

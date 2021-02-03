@@ -5,20 +5,13 @@ import java.io.IOException;
 public class Input extends Filter {
 	FileInputStream fileIn;
 	
-	public Input(FileInputStream in, Pipe entry, Pipe out) {
-		super(entry, out);
+	public Input(FileInputStream in, Pipe out) {
+		super(in, out);
 		fileIn = in;
 	}
 	
 	@Override
 	public void run(){
-		int data;
-		try {
-			while((data = fileIn.read()) != -1)
-				input.write((char) data);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		output.write(fileIn);
 	}
 }
