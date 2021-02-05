@@ -11,7 +11,14 @@ public class Alphabetizer extends Filter {
 	@Override
 	public void run() {
 		try {
-			String shiftedLines = input.read();
+			System.out.println("Alphabetizer: ");
+			String[] shiftedLines = input.read().trim().split("\\n");
+			Utils.RemoveChangeOfLineChars(shiftedLines);
+			
+			System.out.println("Lines...");
+			for(int i = 0; i < shiftedLines.length; ++i) {
+				System.out.println("Line: " + shiftedLines[i]);
+			}
 			
 			// call methods and execute logic that sort the shiftedLines alphabetically
 			// write to the output pipe the orderedLines

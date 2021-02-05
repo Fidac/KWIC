@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
+import java.nio.charset.StandardCharsets;
 
 public class Pipe {
 	private PipedReader reader;
@@ -14,11 +15,17 @@ public class Pipe {
 	}
 	
 	public void write(FileInputStream in) {
-		int data;
+		System.out.println("Write: " );
 		try {
-			while((data = in.read()) != -1) {
-				writer.write((char) data);
+			var bytes = in.readAllBytes();
+			String s = new String(bytes, StandardCharsets.UTF_8);
+			//System.out.println("Writing: " + s);
+			for(int i = 0; i < s.length(); ++i) {
+				System.out.println("Writing: " + s.charAt(i));
+				writer.write(s.charAt(i));
 			}
+
+			System.out.println("Stop Writting: " );
 			writer.close();
 				
 		} catch (IOException e) {
@@ -27,9 +34,9 @@ public class Pipe {
 		}
 	}
 	
-	public void write(char c) throws IOException {
-		System.out.println("I'm in writer: " + c);
-		writer.write(c);
+	public void write(String s) throws IOException {
+		writer.write(s);
+		writer.close();
 	}
 	
 	public String read() throws IOException {

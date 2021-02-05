@@ -12,6 +12,7 @@ public class Input extends Filter {
 	
 	@Override
 	public void run(){
+		System.out.println("Input: " );
 		output.write(fileIn);
 	}
 }
