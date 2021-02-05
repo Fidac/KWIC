@@ -11,28 +11,9 @@ public class Pipe {
 	
 	Pipe() throws IOException{
 		writer = new PipedWriter();
-		reader = new PipedReader(writer);
+		reader = new PipedReader(writer, 100000);
 	}
 	
-	public void write(FileInputStream in) {
-		System.out.println("Write: " );
-		try {
-			var bytes = in.readAllBytes();
-			String s = new String(bytes, StandardCharsets.UTF_8);
-			//System.out.println("Writing: " + s);
-			for(int i = 0; i < s.length(); ++i) {
-				System.out.println("Writing: " + s.charAt(i));
-				writer.write(s.charAt(i));
-			}
-
-			System.out.println("Stop Writting: " );
-			writer.close();
-				
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public void write(String s) throws IOException {
 		writer.write(s);
