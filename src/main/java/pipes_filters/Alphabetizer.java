@@ -1,6 +1,8 @@
 package pipes_filters;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Alphabetizer extends Filter {
 
@@ -14,7 +16,8 @@ public class Alphabetizer extends Filter {
 			System.out.println("Alphabetizer: ");
 			String[] shiftedLines = input.read().trim().split("\\n");
 			Utils.RemoveChangeOfLineChars(shiftedLines);
-			
+
+			Arrays.sort(shiftedLines);
 			System.out.println("Lines...");
 			for(int i = 0; i < shiftedLines.length; ++i) {
 				System.out.println("Line: " + shiftedLines[i]);
