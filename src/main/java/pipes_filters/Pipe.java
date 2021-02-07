@@ -1,17 +1,15 @@
-package pipes_filters;
-import java.io.FileInputStream;
+package main.java.pipes_filters;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
-import java.nio.charset.StandardCharsets;
 
 public class Pipe {
 	private PipedReader reader;
 	private PipedWriter writer;
 	
-	Pipe() throws IOException{
+	public Pipe() throws IOException{
 		writer = new PipedWriter();
-		reader = new PipedReader(writer, 100000);
+		reader = new PipedReader(writer, 100000000);
 	}
 	
 	

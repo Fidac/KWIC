@@ -1,4 +1,4 @@
-package pipes_filters;
+package main.java.pipes_filters;
 
 import java.io.FileInputStream;
 

@@ -1,4 +1,4 @@
-package pipes_filters;
+package main.java.pipes_filters;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -7,7 +7,8 @@ public class CircularShifter extends Filter {
 	public CircularShifter(Pipe in, Pipe out){
 		super(in, out);
 	}
-	
+
+	//execute a single shift
 	private String[] shift(String[] line) {
 		String[] shiftLine = line.clone();
 		
@@ -18,7 +19,8 @@ public class CircularShifter extends Filter {
 		shiftLine[shiftLine.length - 1] = shiftWord;
 		return shiftLine;
 	}
-	
+
+	//execute 'times' consecutive single shift over the same line
 	private String[] shiftTimes(String[] line, int times) {
 		String[] shiftedTimes = line.clone();
 		while(times > 0) {
@@ -54,14 +56,10 @@ public class CircularShifter extends Filter {
 		try {
 			String lines[] = input.read().trim().split("\\n");
 			Utils.RemoveChangeOfLineChars(lines);
-			//System.out.println("Lines...");
-			//for(int i = 0; i < lines.length; ++i) {
-			//	System.out.println("Line: " + lines[i] + " " + lines[i].length());
-			//}
+
 			ArrayList<String[]> shiftedLines = shiftLines(lines);
 			String rebuild = Utils.rebuildString(shiftedLines);
-			
-			System.out.println("ShiftedLines: " + rebuild);
+
 			output.write(Utils.rebuildString(shiftedLines));
 			
 		} catch (IOException e) {

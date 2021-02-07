@@ -1,10 +1,5 @@
-package pipes_filters;
+package main.java.pipes_filters;
 import java.io.*;
-import pipes_filters.Pipe;
-import pipes_filters.Input;
-import pipes_filters.Output;
-import pipes_filters.CircularShifter;
-import pipes_filters.Alphabetizer;
 
 public class KWIC {	
 	public void execute(String file) throws IOException {
