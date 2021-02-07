@@ -1,4 +1,4 @@
-package main.java.pipes_filters;
+package pipes_filters;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;

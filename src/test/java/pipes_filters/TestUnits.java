@@ -1,8 +1,8 @@
-package test.java.pipes_filters;
-import main.java.pipes_filters.CircularShifter;
-import main.java.pipes_filters.KWIC;
-import main.java.pipes_filters.Pipe;
-import main.java.pipes_filters.Utils;
+package pipes_filters;
+import pipes_filters.CircularShifter;
+import pipes_filters.KWIC;
+import pipes_filters.Pipe;
+import pipes_filters.Utils;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

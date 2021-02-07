@@ -1,4 +1,4 @@
-package main.java.pipes_filters;
+package pipes_filters;
 import java.util.ArrayList;
 
 public final class Utils {

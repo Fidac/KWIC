@@ -1,6 +1,4 @@
-package main.java;
-
-import main.java.pipes_filters.KWIC;
+import pipes_filters.KWIC;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
