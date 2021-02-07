@@ -11,8 +11,12 @@ public class Output extends Filter {
 	@Override
 	public void run() {
 		try {
+			System.out.println("The final sorted output: ");
 			String orderedLines = input.read();
-			System.out.println(orderedLines);
+			String[] lines = orderedLines.split("\\n");
+			for(String line : lines) {
+				System.out.println(line);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

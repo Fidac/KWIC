@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
+import java.nio.charset.StandardCharsets;
 
 public class Pipe {
 	private PipedReader reader;
@@ -10,26 +11,13 @@ public class Pipe {
 	
 	Pipe() throws IOException{
 		writer = new PipedWriter();
-		reader = new PipedReader(writer);
+		reader = new PipedReader(writer, 100000);
 	}
 	
-	public void write(FileInputStream in) {
-		int data;
-		try {
-			while((data = in.read()) != -1) {
-				writer.write((char) data);
-			}
-			writer.close();
-				
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
-	public void write(char c) throws IOException {
-		System.out.println("I'm in writer: " + c);
-		writer.write(c);
+	public void write(String s) throws IOException {
+		writer.write(s);
+		writer.close();
 	}
 	
 	public String read() throws IOException {
